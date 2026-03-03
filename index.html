@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorveteria Artesanal</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily:
+                {
+                    barlow: ['Barlow', 'sans-serif'],
+                },
+                colors: {
+                    primary: '#533014',
+                    dark: '#222222',
+                    muted: '#999999',
+                    footer: '#333333',
+                }
+            },
+        },
+    }
+</script>
+
+<body class="bg-gray-50">
+
+    <nav class="bg-white shadow-md fixed w-full z-10" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <a href="#" class="flex items-center space-x-2">
+
+                <img src="assets/images/logo.png" alt="Logo da Sorveteria" class="h-10 w-auto">
+                <span class="text-2xl font-bold text-red-600 hidden sm:inline"></span>
+            </a>
+
+            <button @click="open = !open" class="md:hidden text-gray-700 focus:outline-none">
+                <svg x-show="!open" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg x-show="open" class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-brown-600 font-semibold">Home</a>
+                <a href="#cardapio" class="text-gray-700 hover:text-brown-600 font-semibold">Cardápio</a>
+                <a href="#sobre" class="text-gray-700 hover:text-brown-600 font-semibold">Sobre</a>
+                <a href="#contato" class="text-gray-700 hover:text-brown-600 font-semibold">Contato</a>
+            </div>
+        </div>
+
+        <div x-show="open" class="md:hidden bg-white shadow-md">
+            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Home</a>
+            <a href="#cardapio" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Cardápio</a>
+            <a href="#sobre" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Sobre</a>
+            <a href="#contato" class="block px-4 py-2 text-gray-700 hover:bg-red-50">Contato</a>
+        </div>
+    </nav>
+    <div class="h-16"></div>
+
+
+    <div class="h-16"></div>
+
+
+    <section class="banner">
+        <div class="coluna">
+            <p><b style="font-size:40px;">Sorvete artesanal</p>
+            <p><a class="botao" href="#cardapio">VEJA O CARDÁPIO</a></p>
+        </div>
+        <div class="coluna">
+            <img src="./assets/images/banner.png" alt="sorvete artesanal">
+        </div>
+    </section>
+
+    <section class="cardapio" id="cardapio">
+        <h1 style="font-size:30px; font-weight:bold; text-align:center;">Cardápio</h1>
+
+        <!-- menu de categoria inicio -->
+        <nav id="nav-categorias" class="overflow-x-auto whitespace-nowrap snap-x flex gap-2 mt-6 pb-1">
+            <button data-cat="sabores"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Cremoso</button>
+            <button data-cat="bebidas"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Frutado</button>
+            <button data-cat="acompanhamentos"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Vegano</button>
+            <button data-cat="sobremesas"
+                class="snap-start px-4 py-1 rounded-full bg-primary text-white font-bold text-sm transition-transform duration-150 cursor-pointer flex-shrink-0 btn-cat">Sem Lactose</button>
+        </nav>
+
+        <!-- menu de categoria fim -->
+
+        <!-- categoria: cremoso -->
+        <div id="cat-sabores" class="cardapio-conteudo">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Cremoso
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Chocolate Belga</div>
+                <div class="cardapio-preco">R$ 15,00</div>
+                <div class="cardapio-descricao">Sorvete cremoso de chocolate belga</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Flocos</div>
+                <div class="cardapio-preco">R$ 15,00</div>
+                <div class="cardapio-descricao">Sorvete artesanal de Flocos</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Baunilha</div>
+                <div class="cardapio-preco">R$ 15,00</div>
+                <div class="cardapio-descricao">Sorvete clássico de baunilha</div>
+            </div>
+        </div>
+
+        <!-- categoria: frutado -->
+        <div id="cat-bebidas" class="cardapio-conteudo hidden">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Frutado
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Casquinha de Morango Orgânico</div>
+                <div class="cardapio-preco">R$ 12,00</div>
+                <div class="cardapio-descricao">Casquinha de Morango artesanal</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Casquinha de Coco Orgânico</div>
+                <div class="cardapio-preco">R$ 12,00</div>
+                <div class="cardapio-descricao">Casquinha de Coco artesanal</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Casquinha de Abacaxi Orgânico</div>
+                <div class="cardapio-preco">R$ 12,00</div>
+                <div class="cardapio-descricao">Casquinha de Abacaxi artesanal</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Casquinha de Manga Orgânico</div>
+                <div class="cardapio-preco">R$ 12,00</div>
+                <div class="cardapio-descricao">Casquinha de Manga artesanal</div>
+            </div>
+        </div>
+
+        <!-- categoria: acompanhamentos -->
+        <div id="cat-acompanhamentos" class="cardapio-conteudo hidden">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Vegano
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Sorvete Vegano de Açaí</div>
+                <div class="cardapio-preco">R$ 20,00</div>
+                <div class="cardapio-descricao">Sorvete vegano de açaí</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Sorvete Vegano de Chocolate</div>
+                <div class="cardapio-preco">R$ 20,00</div>
+                <div class="cardapio-descricao">Sorvete vegano de chocolate</div>
+            </div>
+        </div>
+
+        <!-- categoria: sobremesas -->
+        <div id="cat-sobremesas" class="cardapio-conteudo hidden">
+            <div class="text-left text-primary text-[22px] mt-[50px]">
+                Sem Lactose
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Pote Sem Lactose de Napolitano</div>
+                <div class="cardapio-preco">R$ 30,00</div>
+                <div class="cardapio-descricao">Pote de 300ml</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Pote Sem Lactose de Morango</div>
+                <div class="cardapio-preco">R$ 30,00</div>
+                <div class="cardapio-descricao">Pote de 300ml</div>
+            </div>
+            <div class="cardapio-item">
+                <div class="cardapio-nome">Pote Sem Lactose de Chocolate</div>
+                <div class="cardapio-preco">R$ 30,00</div>
+                <div class="cardapio-descricao">Pote de 300ml</div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="mt-[100px] text-center p-[50px] text-sm text-white bg-footer">
+        <h3 class="font-bold text-lg">Sorveteria Artesanal🍦</h3>
+        <p class="my-[3px]">Rua Prof. Toledo, 500, centro - Sorocaba</p>
+        <p class="my-[3px]">WhatsApp: (15) 98765-4321</p>
+        <p class="my-[3px]">Aberto todos os dias das 10h ás 21h</p>
+    </footer>
+
+    <a href="https://wa.me/5515987654321" target="_blank" class="link-whatsapp">
+        <img src="./assets/images/whatsapp.png" alt="link-whatsapp">
+    </a>
+    <script>
+        const botoes = document.querySelectorAll('.btn-cat');
+        const conteudos = document.querySelectorAll('.cardapio-conteudo');
+
+        function mostrarCategoria(cat) {
+            //monstrar o conteudo da categoria selecionada
+            conteudos.forEach(div => {
+                div.id === 'cat-' + cat
+                    ? div.classList.remove('hidden')
+                    : div.classList.add('hidden');
+            });
+            //atualizar o estilo do botão ativo
+            botoes.forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.classList.add('bg-primary', 'text-white');
+                    btn.classList.remove('bg-[#ebebeb]', 'text-dark');
+                }else {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-[#ebebeb]', 'text-dark');
+                }
+            });
+        }
+
+        botoes.forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.classList.add('scale-95');
+                mudarCategoria(btn.dataset.cat);
+            });
+                btn.addEventListener('touchend', () => {
+                    btn.classList.remove('scale-95');
+                });
+                btn.addEventListener('click', () => {
+                    mostrarCategoria(btn.dataset.cat);
+                });
+        });
+
+        let startX = 0;
+        let startY = 0;
+
+        botoes.forEach(btn => {
+            btn.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                btn.classList.add('scale-95', 'opacity-80');
+            });
+            btn.addEventListener('touchend', (e) => {
+                btn.classList.remove('scale-95', 'opacity-80');
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                const deltaX = Math.abs(endX - startX);
+                const deltaY = Math.abs(endY - startY);
+
+                if (deltaX < 10 && deltaY < 10) {
+                    mudarCategoria(btn.dataset.cat);
+                }
+            });
+            btn.addEventListener('touchcancel', () => {
+                btn.classList.remove('scale-95', 'opacity-80');
+            });
+            btn.addEventListener('click', () => {
+                mudarCategoria(btn.dataset.cat);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
